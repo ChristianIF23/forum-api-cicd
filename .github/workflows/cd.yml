@@ -21,4 +21,4 @@ jobs:
             cd ${{ github.event.repository.name }}
             git pull origin main
             docker compose down
-            docker compose --env-file ./forum-api/.env up --build -d
+            docker compose up --build -d

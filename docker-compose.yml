@@ -2,6 +2,7 @@ name: FORUM-API-CICD
 services:
   forum-api:
     build: ./forum-api
+    env_file: .env
     networks:
       - main-network
       - internal-network
@@ -16,7 +17,7 @@ services:
 
   postgres:
     image: postgres:16.4
-    env_file: ./forum-api/.env
+    env_file: .env
     volumes:
       - pgdata:/var/lib/postgresql/data
     networks:
