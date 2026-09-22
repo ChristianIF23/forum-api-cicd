@@ -20,6 +20,16 @@ const createServer = async (container) => {
     {
       plugin: Jwt,
     },
+    {
+      plugin: require('hapi-rate-limit'),
+      options: {
+        userLimit: false,
+        pathLimit: 90,
+        pathCache: {
+          expiresIn: 60000,
+        },
+      },
+    },
   ]);
 
   // mendefinisikan strategy autentikasi jwt
